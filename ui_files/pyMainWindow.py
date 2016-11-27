@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Thu Nov 24 21:18:05 2016
+# Created: Sun Nov 27 20:42:30 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -945,7 +945,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addLayout(self.verticalLayout_25, 5, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1185, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1185, 21))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtGui.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -1081,3 +1081,4 @@ class Ui_MainWindow(object):
         self.actionDocumentation.setText(QtGui.QApplication.translate("MainWindow", "Documentation", None, QtGui.QApplication.UnicodeUTF8))
         self.actionAbout.setText(QtGui.QApplication.translate("MainWindow", "About", None, QtGui.QApplication.UnicodeUTF8))
 
+import resources.resources
