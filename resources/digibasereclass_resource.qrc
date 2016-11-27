@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="dbreclass">
+    <file>DigiBaseReclass_logo.png</file>
+    <file>Reclassering_logo.png</file>
+    <file>trash-can.png</file>
+    <file>weblogo.png</file>
+  </qresource>
+</RCC>
