@@ -1,5 +1,5 @@
 import sys
-from datetime import time
+import time
 import datetime
 import os
 import wmi
@@ -20,15 +20,11 @@ DB_PATH = "C:\\users\\aml36\\Desktop\\digibasereclass.db"
         # TODO: general
         # create QTablewidget button frame
 
-
-
-
-
-
 class Window(QMainWindow, pyMainWindow.Ui_MainWindow):
     def __init__(self, parent=None):
         super(Window, self).__init__(parent)
         self.setupUi(self)
+        self.create_case()
 
         self.leFilePath.setText(expanduser('~\\DigiBaseReclass_Zaken\\'))
 
@@ -48,7 +44,7 @@ class Window(QMainWindow, pyMainWindow.Ui_MainWindow):
         self.tbEvidenceSources.clicked.connect(self.evidence_sources)
         self.tbLoad.clicked.connect(self.load_evidence)
         self.tbLoadEvidence.clicked.connect(self.load_evidence)
-        self.tbBrowsePath.clicked.connect(self.create_filepath)
+        #self.tbBrowsePath.clicked.connect(self.create_filepath)
         self.tbAcquire.clicked.connect(self.select_device)
         self.tbAcquireEvidence.clicked.connect(self.select_device)
         self.createWMI()
@@ -113,30 +109,35 @@ class Window(QMainWindow, pyMainWindow.Ui_MainWindow):
         self.tbGoTo.clicked.connect(self.load_evidence)
         self.stackedWidget.show()
 
+    def create_case(self):
 
-    def create_casenumber(self):
-        pass
+        # verify casefolder
+        casePath = expanduser("~\\DigiBaseReclass_Zaken\\")
 
-    def create_casename(self):
-        pass
+        if not os.path.exists(casePath):
+            try:
+                os.makedirs(casePath)
+            except ValueError:
+                dialog = QFileDialog()
+                dialog.setFileMode(QFileDialog.Directory)
+                dialog.setOption(QFileDialog.ShowDirsOnly)
+                dir = dialog.getExistingDirectory(self, 'Kies map', QFileDialog.ShowDirsOnly)
 
-    def ceate_date_created(self):
-        pass
+                filepath = self.leFilePath.text()
 
 
-    def create_filepath(self):
 
-        casename = self.leCaseName.text()
-        casenumber = self.leCaseNumber.text()
+        self.leCaseName.textChanged[str].connect(self.onChanged)
 
-        dialog = QFileDialog()
-        dialog.setFileMode(QFileDialog.Directory)
-        dialog.setOption(QFileDialog.ShowDirsOnly)
-
-        dir = dialog.getExistingDirectory(self, 'Kies map',  expanduser("~\\DigiBaseReclass_Zaken\\"), QFileDialog.ShowDirsOnly)
-
+    def onChanged(self):
         filepath = self.leFilePath.text()
-        return filepath
+
+        text = self.leCaseName.text()
+        filepath = filepath + text
+        self.leFilePath.setText(filepath)
+
+
+
 
     def createWMI(self):
         # Connect to sqlite
@@ -344,8 +345,27 @@ def main():
 
     app = QApplication(sys.argv)
 
+    # Create en show splashscreen
+    file_name = "DigiBaseReclass_logo.png"
+    path = os.path.abspath(os.path.join("resources", file_name))
+    splash_pic = QPixmap(path)
+    splash = QSplashScreen(splash_pic, Qt.WindowStaysOnTopHint)
+    # adding progressbar
+    progressBar = QProgressBar(splash)
+    # time.sleep(1)
+    progressBar.setGeometry(0, 103, 1100, 7)
+    splash.setMask(splash_pic.mask())
+    splash.show()
+
+    for i in range(0, 100):
+        progressBar.setValue(i)
+        t = time.time()
+        while time.time() < t + 0.1:
+            app.processEvents()
+
     form = Window()
-    form.show()
+    form.showMaximized()
+    splash.finish(form)
     sys.exit(app.exec_())
 
 
