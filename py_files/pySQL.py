@@ -5,9 +5,9 @@ def digiBaseReclassConnect(path):
     conn = db3.connect(path)
     return conn
 
-def digiBaseReclassAddTtable(connectie, table):
+def digiBaseReclassAddtable(connectie, table):
 
-    if table == 'indigodevices':
+    if table == 'devices':
         sql = 'create table if not exists ' + table + '''(
             driveletter 		TEXT,
             volume_label 		TEXT,
@@ -23,7 +23,7 @@ def digiBaseReclassAddTtable(connectie, table):
             datetime			TEXT,
             message			TEXT
             );'''
-    elif table == 'indigocase':
+    elif table == 'case':
         sql = 'create table if not exists ' + table + '''(
             zaaknaam			TEXT,
             zaaknummer			NUMERIC,
@@ -37,15 +37,17 @@ def digiBaseReclassAddTtable(connectie, table):
             casedir         TEXT
             );'''
 
-    elif table == 'indigoitem' :
+    elif table == 'currentdevice' :
         sql = 'create table if not exists ' + table + '''(
-            item_volume_label 		TEXT,
-            item_size	 		TEXT,
-            partitionnumber		NUMERIC,
-            item_sn 			TEXT,
-            item_vendor 		TEXT,
-            item_type 			TEXT,
-            item_description		TEXT
+            driveletter 		TEXT,
+            volume_label 		TEXT,
+            device_size 		TEXT,
+            device_sn 			TEXT,
+            physicaldrive 		TEXT,
+            device_vendor		TEXT,
+            devicetype		TEXT,
+            partitioncount		TEXT,
+            image_type     TEXT
             );'''
 
     elif table == 'match':
@@ -84,18 +86,15 @@ def digiBaseReclassInsertTable(connectie, table, column):
 
     cur = connectie.cursor()
 
-    if table == 'indigodevices':
+    if table == 'devices':
         insertsql = [(column[0], column[1], column[2], column[3], column[4], column[5], column[6], column[7])]
         cur.executemany('Insert into ' + table + ' values (?,?,?,?,?,?,?,?)', insertsql)
-    elif table == 'indigocase':
-        insertsql = [(column[0], column[1], column[2], column[3], column[4])]
-        cur.executemany('Insert into ' + table + ' values (?,?,?,?,?)', insertsql)
-    elif table == 'indigocurrentcase':
-        insertsql = [(column[0], column[1], column[2], column[3], column[4], column[5], column[6], column[7])]
-        cur.executemany('Insert into ' + table + ' values (?,?,?,?,?,?,?,?)', insertsql)
-    elif table == 'indigoitem' :
-        insertsql = [(column[0], column[1], column[2], column[3], column[4], column[5], column[6])]
-        cur.executemany('Insert into ' + table + ' values (?,?,?,?,?,?,?)', insertsql)
+    elif table == 'case':
+        insertsql = [(column[0], column[1], column[2], column[3], column[4], column[5], column[6], column[7], column[8], column[9])]
+        cur.executemany('Insert into ' + table + ' values (?,?,?,?,?,?,?,?,?,?)', insertsql)
+    elif table == 'currentdevice':
+        insertsql = [(column[0], column[1], column[2], column[3], column[4], column[5], column[6], column[7], column[8])]
+        cur.executemany('Insert into ' + table + ' values (?,?,?,?,?,?,?,?,?)', insertsql)
     elif table == 'match' :
         insertsql = [(column[0], column[1], column[2], column[3], column[4], column[5])]
         cur.executemany('Insert into ' + table + ' values (?,?,?,?,?,?)', insertsql)

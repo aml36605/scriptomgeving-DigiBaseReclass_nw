@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Thu Nov 10 21:13:22 2016
+# Created: Thu Nov 24 21:18:05 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PySide import QtCore, QtGui
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1170, 852)
+        MainWindow.resize(1185, 850)
         MainWindow.setLayoutDirection(QtCore.Qt.LeftToRight)
         MainWindow.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "\n"
@@ -229,12 +229,16 @@ class Ui_MainWindow(object):
 "\n"
 "}\n"
 "\n"
+"#SelectedDevices{\n"
+"    borders:none;\n"
+"}\n"
 "QLabel{\n"
 "    text-transform: none;\n"
 "\n"
 "}\n"
 "\n"
-"QLabel#lblCaseInfo, #lblReportOptions, #lblKeywords, #lblKeywords_2, #lblLists, #lblAddKeywordsToSearch, #lblAddHashFilesToSearch, #lblIgnoreFolders, #lblOS_Artifacts, #lblLoadHashFiles, #lblLoadProjectVic, #lblIgnoreFolders_2, #lblSourcesToProcess, #lblLoadEvidence{\n"
+"\n"
+"QLabel#lblCaseInfo, #lblReportOptions, #lblKeywords, #lblKeywords_2, #lblLists, #lblAddKeywordsToSearch, #lblAddHashFilesToSearch, #lblIgnoreFolders, #lblOS_Artifacts, #lblLoadHashFiles, #lblLoadProjectVic, #lblIgnoreFolders_2, #lblSourcesToProcess, #lblLoadEvidence, #lblSelect_devices{\n"
 "    text-transform: uppercase;\n"
 "    font: 13pt \"Arial Rounded MT Bold\";\n"
 "    margin-left: 10px\n"
@@ -267,7 +271,7 @@ class Ui_MainWindow(object):
 "\n"
 "#tbAddKeywordToSearch, #tbAddHashFilesToSearch, #tbIgnoreFolders_2, #tbOS_Artifacts, #tbAcquireEvidence, #tbLoadEvidence{\n"
 "    \n"
-"margin-left: 10px;\n"
+"    margin-left: 10px;\n"
 "    text-transform: uppercase;\n"
 "    font: 10pt \"Arial Rounded MT Bold\";\n"
 "    border-style: solid;\n"
@@ -824,9 +828,29 @@ class Ui_MainWindow(object):
         self.horizontalLayout_18.setObjectName("horizontalLayout_18")
         spacerItem51 = QtGui.QSpacerItem(10, 20, QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout_18.addItem(spacerItem51)
-        self.tableView_5 = QtGui.QTableView(self.page_5)
-        self.tableView_5.setObjectName("tableView_5")
-        self.horizontalLayout_18.addWidget(self.tableView_5)
+        self.twSources = QtGui.QTableWidget(self.page_5)
+        self.twSources.setObjectName("twSources")
+        self.twSources.setColumnCount(9)
+        self.twSources.setRowCount(0)
+        item = QtGui.QTableWidgetItem()
+        self.twSources.setHorizontalHeaderItem(0, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSources.setHorizontalHeaderItem(1, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSources.setHorizontalHeaderItem(2, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSources.setHorizontalHeaderItem(3, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSources.setHorizontalHeaderItem(4, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSources.setHorizontalHeaderItem(5, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSources.setHorizontalHeaderItem(6, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSources.setHorizontalHeaderItem(7, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSources.setHorizontalHeaderItem(8, item)
+        self.horizontalLayout_18.addWidget(self.twSources)
         self.verticalLayout_20.addLayout(self.horizontalLayout_18)
         spacerItem52 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.verticalLayout_20.addItem(spacerItem52)
@@ -845,10 +869,83 @@ class Ui_MainWindow(object):
         self.verticalLayout_20.addItem(spacerItem54)
         self.verticalLayout_21.addLayout(self.verticalLayout_20)
         self.stackedWidget.addWidget(self.page_5)
+        self.page_7 = QtGui.QWidget()
+        self.page_7.setObjectName("page_7")
+        self.verticalLayout_14 = QtGui.QVBoxLayout(self.page_7)
+        self.verticalLayout_14.setObjectName("verticalLayout_14")
+        self.verticalLayout_13 = QtGui.QVBoxLayout()
+        self.verticalLayout_13.setObjectName("verticalLayout_13")
+        spacerItem55 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.verticalLayout_13.addItem(spacerItem55)
+        self.lblSelect_devices = QtGui.QLabel(self.page_7)
+        self.lblSelect_devices.setObjectName("lblSelect_devices")
+        self.verticalLayout_13.addWidget(self.lblSelect_devices)
+        spacerItem56 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.verticalLayout_13.addItem(spacerItem56)
+        self.verticalLayout_14.addLayout(self.verticalLayout_13)
+        self.verticalLayout_23 = QtGui.QVBoxLayout()
+        self.verticalLayout_23.setObjectName("verticalLayout_23")
+        self.horizontalLayout_20 = QtGui.QHBoxLayout()
+        self.horizontalLayout_20.setObjectName("horizontalLayout_20")
+        spacerItem57 = QtGui.QSpacerItem(15, 20, QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout_20.addItem(spacerItem57)
+        self.twSelectDevices = QtGui.QTableWidget(self.page_7)
+        self.twSelectDevices.setFrameShape(QtGui.QFrame.NoFrame)
+        self.twSelectDevices.setShowGrid(False)
+        self.twSelectDevices.setGridStyle(QtCore.Qt.SolidLine)
+        self.twSelectDevices.setObjectName("twSelectDevices")
+        self.twSelectDevices.setColumnCount(11)
+        self.twSelectDevices.setRowCount(0)
+        item = QtGui.QTableWidgetItem()
+        self.twSelectDevices.setHorizontalHeaderItem(0, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSelectDevices.setHorizontalHeaderItem(1, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSelectDevices.setHorizontalHeaderItem(2, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSelectDevices.setHorizontalHeaderItem(3, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSelectDevices.setHorizontalHeaderItem(4, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSelectDevices.setHorizontalHeaderItem(5, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSelectDevices.setHorizontalHeaderItem(6, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSelectDevices.setHorizontalHeaderItem(7, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSelectDevices.setHorizontalHeaderItem(8, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSelectDevices.setHorizontalHeaderItem(9, item)
+        item = QtGui.QTableWidgetItem()
+        self.twSelectDevices.setHorizontalHeaderItem(10, item)
+        self.horizontalLayout_20.addWidget(self.twSelectDevices)
+        self.verticalLayout_23.addLayout(self.horizontalLayout_20)
+        self.verticalLayout_14.addLayout(self.verticalLayout_23)
+        self.verticalLayout_24 = QtGui.QVBoxLayout()
+        self.verticalLayout_24.setObjectName("verticalLayout_24")
+        self.label_5 = QtGui.QLabel(self.page_7)
+        self.label_5.setObjectName("label_5")
+        self.verticalLayout_24.addWidget(self.label_5)
+        self.verticalLayout_14.addLayout(self.verticalLayout_24)
+        self.stackedWidget.addWidget(self.page_7)
         self.gridLayout.addWidget(self.stackedWidget, 3, 1, 1, 1)
+        self.verticalLayout_25 = QtGui.QVBoxLayout()
+        self.verticalLayout_25.setObjectName("verticalLayout_25")
+        self.tbBack = QtGui.QToolButton(self.centralwidget)
+        self.tbBack.setStyleSheet("    margin-left: 10px;\n"
+"    text-transform: uppercase;\n"
+"    font: 10pt \"Arial Rounded MT Bold\";\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    color: rgb(0,102,255)")
+        self.tbBack.setCheckable(True)
+        self.tbBack.setAutoExclusive(True)
+        self.tbBack.setObjectName("tbBack")
+        self.verticalLayout_25.addWidget(self.tbBack)
+        self.gridLayout.addLayout(self.verticalLayout_25, 5, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1170, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1185, 26))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtGui.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -877,7 +974,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(6)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -950,8 +1047,31 @@ class Ui_MainWindow(object):
         self.tbIgnoreFoldersDel.setText(QtGui.QApplication.translate("MainWindow", "delete folder", None, QtGui.QApplication.UnicodeUTF8))
         self.lblIgnoreFolders_Records.setText(QtGui.QApplication.translate("MainWindow", "Records loaded: 0", None, QtGui.QApplication.UnicodeUTF8))
         self.lblSourcesToProcess.setText(QtGui.QApplication.translate("MainWindow", "Sources to process", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSources.horizontalHeaderItem(0).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSources.horizontalHeaderItem(1).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSources.horizontalHeaderItem(2).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSources.horizontalHeaderItem(3).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSources.horizontalHeaderItem(4).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSources.horizontalHeaderItem(5).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSources.horizontalHeaderItem(6).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSources.horizontalHeaderItem(7).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSources.horizontalHeaderItem(8).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
         self.tbAcquireEvidence.setText(QtGui.QApplication.translate("MainWindow", "ACQUIRE EVIDENCE", None, QtGui.QApplication.UnicodeUTF8))
         self.tbLoadEvidence.setText(QtGui.QApplication.translate("MainWindow", "LOAD EVIDENCE", None, QtGui.QApplication.UnicodeUTF8))
+        self.lblSelect_devices.setText(QtGui.QApplication.translate("MainWindow", "TextLabel", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSelectDevices.horizontalHeaderItem(0).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSelectDevices.horizontalHeaderItem(1).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSelectDevices.horizontalHeaderItem(2).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSelectDevices.horizontalHeaderItem(3).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSelectDevices.horizontalHeaderItem(4).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSelectDevices.horizontalHeaderItem(5).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSelectDevices.horizontalHeaderItem(6).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSelectDevices.horizontalHeaderItem(7).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSelectDevices.horizontalHeaderItem(8).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSelectDevices.horizontalHeaderItem(9).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.twSelectDevices.horizontalHeaderItem(10).setText(QtGui.QApplication.translate("MainWindow", "New Column", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_5.setText(QtGui.QApplication.translate("MainWindow", "TextLabel", None, QtGui.QApplication.UnicodeUTF8))
+        self.tbBack.setText(QtGui.QApplication.translate("MainWindow", "back", None, QtGui.QApplication.UnicodeUTF8))
         self.menuFile.setTitle(QtGui.QApplication.translate("MainWindow", "File", None, QtGui.QApplication.UnicodeUTF8))
         self.menuTools.setTitle(QtGui.QApplication.translate("MainWindow", "Tools", None, QtGui.QApplication.UnicodeUTF8))
         self.menuHelp.setTitle(QtGui.QApplication.translate("MainWindow", "Help", None, QtGui.QApplication.UnicodeUTF8))

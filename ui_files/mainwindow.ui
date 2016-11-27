@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1170</width>
-    <height>852</height>
+    <width>1185</width>
+    <height>850</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -466,12 +466,16 @@ QToolButton#tbAcquire, #tbLoad, #tbAddKey, #tbAddHash, #tbIgnoreFolders, #tbSyst
 
 }
 
+#SelectedDevices{
+	borders:none;
+}
 QLabel{
 	text-transform: none;
 
 }
 
-QLabel#lblCaseInfo, #lblReportOptions, #lblKeywords, #lblKeywords_2, #lblLists, #lblAddKeywordsToSearch, #lblAddHashFilesToSearch, #lblIgnoreFolders, #lblOS_Artifacts, #lblLoadHashFiles, #lblLoadProjectVic, #lblIgnoreFolders_2, #lblSourcesToProcess, #lblLoadEvidence{
+
+QLabel#lblCaseInfo, #lblReportOptions, #lblKeywords, #lblKeywords_2, #lblLists, #lblAddKeywordsToSearch, #lblAddHashFilesToSearch, #lblIgnoreFolders, #lblOS_Artifacts, #lblLoadHashFiles, #lblLoadProjectVic, #lblIgnoreFolders_2, #lblSourcesToProcess, #lblLoadEvidence, #lblSelect_devices{
 	text-transform: uppercase;
 	font: 13pt &quot;Arial Rounded MT Bold&quot;;
 	margin-left: 10px
@@ -504,7 +508,7 @@ QLabel#lblCaseNr, #lblFolder, #lblFile, #lblDate, #lblExam, #lblDescr, #lblCover
 
 #tbAddKeywordToSearch, #tbAddHashFilesToSearch, #tbIgnoreFolders_2, #tbOS_Artifacts, #tbAcquireEvidence, #tbLoadEvidence{
 	
-margin-left: 10px;
+	margin-left: 10px;
 	text-transform: uppercase;
 	font: 10pt &quot;Arial Rounded MT Bold&quot;;
 	border-style: solid;
@@ -527,7 +531,7 @@ margin-left: 10px;
        <enum>QFrame::StyledPanel</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>6</number>
       </property>
       <widget class="QWidget" name="casedetails">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -2040,7 +2044,53 @@ Each MD5 of CRC value must appear on its own line</string>
              </spacer>
             </item>
             <item>
-             <widget class="QTableView" name="tableView_5"/>
+             <widget class="QTableWidget" name="twSources">
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+             </widget>
             </item>
            </layout>
           </item>
@@ -2105,7 +2155,176 @@ Each MD5 of CRC value must appear on its own line</string>
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="page_7">
+       <layout class="QVBoxLayout" name="verticalLayout_14">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_13">
+          <item>
+           <spacer name="horizontalSpacer_51">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="lblSelect_devices">
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_52">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_23">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_20">
+            <item>
+             <spacer name="horizontalSpacer_50">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Preferred</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>15</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="twSelectDevices">
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="gridStyle">
+               <enum>Qt::SolidLine</enum>
+              </property>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New Column</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_24">
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
      </widget>
+    </item>
+    <item row="5" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_25">
+      <item>
+       <widget class="QToolButton" name="tbBack">
+        <property name="styleSheet">
+         <string notr="true">	margin-left: 10px;
+	text-transform: uppercase;
+	font: 10pt &quot;Arial Rounded MT Bold&quot;;
+	border-style: solid;
+	border-width: 2px;
+	color: rgb(0,102,255)</string>
+        </property>
+        <property name="text">
+         <string>back</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
@@ -2114,7 +2333,7 @@ Each MD5 of CRC value must appear on its own line</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1170</width>
+     <width>1185</width>
      <height>26</height>
     </rect>
    </property>

@@ -1,4 +1,4 @@
-#!"E:\scriptomgeving DigiBaseReclass_nw\venv\Scripts\python.exe"
+#!"F:\Scripting\scriptomgeving DigiBaseReclass_nw\venv\Scripts\python.exe"
 # EASY-INSTALL-ENTRY-SCRIPT: 'pip==7.1.0','console_scripts','pip'
 __requires__ = 'pip==7.1.0'
 import sys
